@@ -3,8 +3,8 @@ from appUI import Ui_MainWindow
 from PyQt6 import QtWidgets, QtGui
 import os
 
-os.environ['connection_str'] = ''
-os.environ['table_name'] = ''
+os.environ['connection_str'] = 'C##anton/123@localhost/xe'
+os.environ['table_name'] = 'XML_TABLE'
 app = QApplication([])
 MainWindow = QtWidgets.QMainWindow()
 ui = Ui_MainWindow()

@@ -112,12 +112,14 @@ class Ui_MainWindow(object):
                 self.validateXML(content)
                 self.db.update(self.file_id, self.file_name, content)
                 self.getTableData()
+                return
             if (hasattr(self, 'file_path') and self.file_path):
                 file=open(self.file_path, "r")
                 content = file.read()
                 self.validateXML(content)
                 self.db.insert(self.file_name, content)
                 self.getTableData()
+                return
         except ET.ParseError as e:
             msg = QtWidgets.QMessageBox()
             msg.setWindowTitle('Ошибка')
