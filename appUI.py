@@ -10,6 +10,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from db import DB
 from tableModel import TableModel
 from xml.etree import ElementTree as ET
+import os
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -65,7 +66,7 @@ class Ui_MainWindow(object):
 
 
     def addFunctions(self):
-        self.db = DB('C##anton/123@localhost/xe', 'XML_TABLE')
+        self.db = DB(os.environ['connection_str'], os.environ['table_name'])
 
         self.chooseFile.clicked.connect(self.chooseFileButtonOnClick)
         self.loadFile.clicked.connect(self.loadFileButtonOnClick)
