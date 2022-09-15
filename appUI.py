@@ -71,6 +71,7 @@ class Ui_MainWindow(object):
         self.chooseFile.clicked.connect(self.chooseFileButtonOnClick)
         self.loadFile.clicked.connect(self.loadFileButtonOnClick)
         self.tableView.clicked.connect(self.tableRowOnClick)
+        self.tableView.clicked.connect(self.tableRowOnClick)
 
     def tableRowOnClick(self, index):
         nameIndex = self.tableView.model().index(index.row(), 0)
@@ -91,6 +92,16 @@ class Ui_MainWindow(object):
             content = file.read()
             self.plainTextEdit.setPlainText(content)
             file.close()
+
+    # def delete(self):
+    #     self.file_id = None
+    #     self.lineEdit.setText('')
+    #     self.file_path = QtWidgets.QFileDialog.getOpenFileName(filter="xml(*.xml)")[0]
+    #     if not self.file_path == "":
+    #         file=open(self.file_path, "r")
+    #         content = file.read()
+    #         self.plainTextEdit.setPlainText(content)
+    #         file.close()
 
     def validateXML(self, xml):
         x = ET.fromstring(xml)
@@ -141,5 +152,5 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Загрузить XML"))
         self.chooseFile.setText(_translate("MainWindow", "Выбрать файл"))
-        self.loadFile.setText(_translate("MainWindow", "Загрузить файл"))
+        self.loadFile.setText(_translate("MainWindow", "Сохранить файл"))
         self.lineEdit.setPlaceholderText(_translate("MainWindow", "Введите название файла"))

@@ -37,3 +37,9 @@ class DB:
         cursor.execute(sql, id=id, xml_name=name, xml=xml_file)
         self._connection.commit()
         # print(f'row updated: {cursor.rowcount}')
+
+    def delete(self, id):
+        cursor = self._connection.cursor()
+        sql = f"""DELETE FROM {self._table_name} WHERE id = :id"""
+        cursor.execute(sql, id=id)
+        self._connection.commit()
